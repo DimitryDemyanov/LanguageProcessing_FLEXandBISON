@@ -1,0 +1,4 @@
+<maria> AC KC QC JC 10C </maria>
+<juan> 9C 9D 7C 6C 5C 8C </juan>
+<ana> 6D 2D 3C 8H JC </ana>
+<pablo> 7D 7S 3D 3H 2C </pablo>

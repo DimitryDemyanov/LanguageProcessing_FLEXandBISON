@@ -1,0 +1,13 @@
+preuba1.txt
+
+Resultado:
+Caracteres: 43, Palabras: 10, Frases: 4
+Palabras en mayuscula: 1, Palabras en minuscula: 5, Palabras numericas: 1
+
+
+
+prueba2.txt
+
+Resultado:
+Caracteres: 3, Palabras: 0, Frases: 0
+Palabras en mayuscula: 0, Palabras en minuscula: 0, Palabras numericas: 0

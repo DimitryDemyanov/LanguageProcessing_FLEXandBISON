@@ -1,0 +1,75 @@
+Procesamiento de Lenguajes
+
+Dimitry Demyanov Prishtchepa
+Grupo 3.3
+
+Práctica Final - Analizador de Manos de Poker
+
+
+Introduccion:
+La práctica consta del desarrollo e implementación de un programa empleando FLEX y BISON.
+Dicho programa es encargado de analizar las manos de los jugadores de una partida de póker,
+escogiendo a la mejor como ganador. Habrá un fichero de entrada que contendrá las cinco 
+(por normativa) cartas en la mano de cada jugador, y devuelve por pantalla el ganador, decidio 
+por las normal de calificacion de las manos del poker.
+
+Si un jugador posee más de las 5 cartas permitidas, el sistema cesará y será notificado 
+por la terminal.
+
+La baraja de póker consta de 52 cartas, de las cuales existen 13 cartas
+de cada 4 tipos de palo (suit). Esos son diamands (D), hearts (H),
+spades (S) y clubs (C). El orden de valor de las cartas del mismo palo
+son del 2 al 10, seguido del jack (J), la queen (Q), el king (K) y ace (A),
+que dentro del programa toman valores de 11, 12, 13, y 14 respectivamente.
+
+Las reglas (por orden) de mejores manos son:
+    ROYAL FLUSH:        Escalera real, todas las cartas del mismo palo desde el 10 hasta el ACE.
+    STRAIGHT FLUSH      Escalera de color, todas las cartas son del mismo palo y hacen escalera.
+    FOUR OF A KIND      La misma carta (número) de los 4 palos.
+    FULL HOUSE          Un trío y una pareja.
+    FLUSH               Todas las cartas del mismo palo (sin hacer escalera).
+    STRAIGHT            Escalera de las cinco cartas (contando el número, no el palo).
+    THREE OF A KIND     La misma carta (número) de 3 palos.
+    TWO PAIR            Dos parejas (mismo número).
+    ONE PAIR            Una pareja (mismo número).
+
+
+
+Funcionamiento:
+El analizador léxico se encargará de leer el numero y el palo de cada carta, y le pasa su valor 
+al analizador sintáctico, que será el que se encargue de realizar las operaciones poder 
+detectar las diferentes manos.
+Precondiciones:
+	    Las escaleras tienen que ser introducidas de forma adyacente para que se detecten 
+        correctamente (da igual en oden ascendente o descendente).
+	    Lo mismo pasa con las parejas, que tienen que escribirse de forma contigua.
+
+
+Explicación de los ficheros:
+En el archivo FLEX (poker.l) encontramos los grupos de símbolos que serán detectados y utilizados,
+como los números o los palos de las cartas. Además, se definen las reglas, de manera que pueda
+reconocer un jugador, el valor de los numeros (y si lee un simbolo, devolver su valor como número).
+
+En el archivo de BISON (poker.y) se declaran los tokens que se emplean para las reglas gramaticales.
+Cuando el analizador sintáctico lea las cinco cartas de una mano, le asignará su valor equivalente a partir 
+de si se cumplen o no unas funciones booleanas, que detectan alguna mano de las existentes en las reglas del poker.
+
+
+Problemas y posibles mejoras:
+    No se almacena el nombre de los jugadores.
+    No se controla si existen cartas repetidas.
+    No existe sistema de desempate (se sobreescribe y gana la ultima ocurrencia).
+    Las parejas y las escaleras tienen que estar escritas de forma contigua para ser detectadas.
+    El numero de jugadores se encuentra hard-coded (en este caso, 4).
+
+
+Ejecucion:
+Se ha facilitado un Makefile para poder compilar y ejecutar el programa.
+Para cambiar de archivo de prueba, hace falta cambiar la linea 2 del Makefile.
+Comandos:
+    $make compile 
+    $make run
+
+    o 
+
+    $make all (compila y ejecuta)

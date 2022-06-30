@@ -1,0 +1,28 @@
+Dimitry Demyanov Prishtchepa
+Grupo 3.3
+
+Procesamiento de Lenguajes - Practica 1
+
+
+Esta practica consta del diseño y de la implementacion mediante FLEX de un analizador estadistico de textos.
+Dado un fichero de texto, muestra el numero total de caracteres, palabras, palabras en minuscula, palabras en mayuscula, palabras numericas y frases.
+
+
+Para usar el programa:
+$make compile
+$make run
+
+(Dentro del Makefile podemos seleccionar cual es el fichero de pruebas a utilizar)
+
+
+Descripcion:
+Internamente, el programa es bastante simple y sencillo de comprender a simple vista.
+Se crean unas variables que almacenarán el número caracteres, palabras, etc...
+Además, se definen los simbolos o grupos de simbolos que formaran las reglas empleadas por el analizador.
+Las reglas tienen, en general, la misma estructura: Resetear la variable de frase, y aumentar los contadores necesarios en cada situacion.
+
+
+
+IMPORTANTE:
+No se contemplan las tildes ni los caracteres especiales, por lo que producen resultados inesperados 
+(Cada tilde cuenta como un caracter extra, y rompe el contador de palabras mayusculas o minisuculas)

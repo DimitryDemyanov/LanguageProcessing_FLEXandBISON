@@ -1,0 +1,33 @@
+Dimitry Demyanov Prishtchepa
+Grupo 3.3
+
+Procesamiento de Lenguajes - Practica 2
+
+
+
+Esta practica consta del diseño y de la implementacion mediante FLEX y BISON 
+de un validador sintactico de un fichero de formato y estructura XML.
+Dado un fichero, se devuelve por el terminal como salida el resultado, diciendo 
+asi si la sintaxis es correcta, y en caso de algún error, dicho error.
+
+
+Para usar el programa:
+$make all
+
+(Dentro del Makefile esta especificado el ejecutar todos los archivos de prueba)
+
+
+Descripcion:
+En el archivo FLEX se definen todos los grupos de simbolos posibles.
+Para comenzar, se declaran los conjuntos que forman las etiquetas ("tags").
+Cabe destacar que se hace tanto de las combinaciones como de las incorrectas, 
+para poder así encontrar los fallos en dichas etiquetas (si los hay). También se definen 
+eleemntos como los comentarios o las cabeceras que serán ignorados (regla vacía).
+Posteriormente, se definen las reglas para los diversos conjuntos declarados anteriormente.
+Cabe destacar que para conseguir que se analicen los tags junto a su contenido 
+recursivamente, hay dos tipos de reglas. INITIAL y SUBPROCESS.
+
+En el archivo de BISON empezamos declarando los tokens que emplearemos para las 
+reglas. En cada regla gramatical comprobamos si la sintaxis coincide con
+alguno de los casos de error. Si eso no ocurre, se devuelvle el mensaje de 
+que el documento es CORRECTO.
